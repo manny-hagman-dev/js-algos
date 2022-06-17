@@ -4,22 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Count Unique Values Naive</title>
+    <title>Count Unique Values Non Naive</title>
   </head>
   <body>
     <script>
       function countUniqueValues(arr) {
+        let left = 0;
+        let right = left + 1;
         let count = arr.length;
-        for (let i = 0; i < arr.length; i++) {
-          for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] === arr[j]) {
-              count = count - 1;
-            }
+        console.log(count);
+        while (left < right) {
+          if (left === arr.length) {
+            return;
+          }
+          if (left === right) {
+            count = count - 1;
+            left = left + 1;
+            right = right + 1;
           }
         }
+        console.log(count);
         return count;
       }
-      countUniqueValues([1, 2, 3, 4, 5, 6]);
     </script>
   </body>
 </html>

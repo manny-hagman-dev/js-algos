@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sameNums(arr1, arr2) {
+        if (arr1.length !== arr2.length) {
+          return false;
+        }
+        let lookup = {};
+        // loop over values in first array
+        // for each item in the array add it as the key in the lookup object
+        // and add the number of times it appears in the lookup object as its value
+        for (const num of arr1) {
+          // key         // if value exists add 1 to the value otherwise set the value to 0 and then add 1
+          lookup[num] = (lookup[num] || 0) + 1;
+        }
+
+        // loop over second array
+        for (const num of arr2) {
+          // check if the num of the current iteration exists in lookup
+          // if num does not exist in arr2 return false
+          // we want to return false early because if the num does not exist in the second array
+          // we know that the second array does not contain the same values as the first
+          if (!lookup[num]) {
+            return false;
+          } else {
+            // otherwise if the num of the current iteration does exist in the lookup table
+            // then we want to decrement that value of that num in the lookup
+            lookup[num] = lookup[num] - 1;
+          }
+        }
+        // if we are able to reach this return statement that means our array should have keys
+        // with all 0 values
+        return true;
+      }
+    </script>
+  </body>
+</html>
