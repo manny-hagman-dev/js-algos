@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sumTen(arr) {
+        let left = 0;
+        let right = arr.length - 1;
+
+        while (left < right) {
+          let sum = arr[left] + arr[right];
+          if (sum === 10) {
+            return [arr[left], arr[right]];
+          } else if (sum > 10) {
+            right = right - 1;
+          } else {
+            left = left + 1;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
