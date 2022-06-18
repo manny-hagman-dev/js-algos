@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=Sum, initial-scale=1.0" />
+    <title>Sum Zero Multiple Pointers</title>
+  </head>
+  <body>
+    <script>
+      // write a function that takes in an array and returns the first pair of numbers
+      // where the sum is 0
+      // return undefined if no pair exists
+      // assume the array is sorted [-3, 2, 1, 0, 1, 2, 3], [-5, 1, 2, 4, 5]
+      function sumZero(arr) {
+        // create two pointers (variables)
+        // one will start at the first index of the array
+        // the second will start at the last index of the array
+        let left = 0;
+        let right = arr.length - 1;
+
+        while (left < right) {
+          let sum = arr[left] + arr[right];
+          if (sum === 0) {
+            return [arr[left], arr[right]];
+          } else if (sum > 0) {
+            right = right - 1;
+          } else {
+            left = left + 1;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
