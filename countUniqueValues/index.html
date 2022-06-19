@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count Unique Values Multiple Pointers</title>
+  </head>
+  <body>
+    <script>
+      // given a sorted array count the number of unique values in that array
+      // [1, 2, 3, 3, 4] 4
+      // [10, 11, 13, 15, 15, 15, 16] 5
+      // [1, 2, 2, 2] 2
+      // [] 0
+      function countUniqueValues(arr) {
+        // handle edge case when arr is empty
+        // should return 0
+        if (arr.length === 0) {
+          return 0;
+        }
+        // create first pointer i
+        let i = 0;
+        // create loop
+        // set second pointer equal to 1
+        for (let j = 1; j < arr.length; j++) {
+          // if the pointers (i, j) are not equal
+          // move up one from the left and set the
+          // value of that index equal to the current value of j
+          if (arr[i] !== arr[j]) {
+            i++;
+            arr[i] = arr[j];
+          }
+        }
+        // to determine the number of unique values
+        // we just need to know the value of i + 1
+        // since we have moved all of the values that are unique next to each other
+        return i + 1;
+      }
+    </script>
+  </body>
+</html>
