@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Same Frequency</title>
+  </head>
+  <body>
+    <script>
+      // given two positive integers, find out of they have the same frquency of digits
+
+      // [12, 21] true
+      // [1231, 2131] true
+      // [22, 222] false
+      // [34, 14] false
+      function sameFrequency(num1, num2) {
+        let num1String = num1.toString();
+        let num2String = num2.toString();
+
+        if (num1String.length !== num2String.length) {
+          return false;
+        }
+
+        let lookup = {};
+        // loop over first string and create lookup object
+        for (const num of num1String) {
+          lookup[num] = (lookup[num] || 0) + 1;
+        }
+
+        for (const num of num2String) {
+          if (!lookup[num]) {
+            return false;
+          } else {
+            lookup[num] = lookup[num] - 1;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
