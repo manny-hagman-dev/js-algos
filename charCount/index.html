@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // write a function that takes a string and return an object with the count of each
+      // character in the string
+
+      function onlyLetters(str) {
+        return /^[a-zA-Z]+$/.test(str);
+      }
+      function charCount(str) {
+        if (!onlyLetters(str)) {
+          return 'input must only contain letters';
+        }
+
+        const lookup = {};
+        
+        for (const char of str.toLowerCase()) {
+          lookup[char] = (lookup[char] || 0) + 1;
+        }
+        return lookup;
+      }
+    </script>
+  </body>
+</html>
