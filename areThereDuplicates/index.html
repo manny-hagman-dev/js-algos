@@ -9,7 +9,18 @@
   <body>
     <script>
       function areThereDuplicates(...args) {
-        console.log(args);
+        const lookup = {};
+
+        for (const arg of args) {
+          lookup[arg] = (lookup[arg] || 0) + 1;
+        }
+
+        for (const key in lookup) {
+          if (lookup[key] > 1) {
+            return true;
+          }
+        }
+        return false;
       }
     </script>
   </body>
