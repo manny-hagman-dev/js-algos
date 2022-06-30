@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Average Pair</title>
+  </head>
+  <body>
+    <script>
+      function averagePair(arr, avg) {
+        if (arr.length === 0) {
+          return false;
+        }
+
+        let i = 0;
+
+        for (let j = 1; j < arr.length; j++) {
+          console.log(arr[i], arr[j]);
+          const sum = arr[i] + arr[j];
+          const average = sum / 2;
+
+          if (average === avg) {
+            return true;
+          } else if (j === arr.length - 1) {
+            i++;
+            for (let index = 0; index < array.length; index++) {
+              const element = array[index];
+            }
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
