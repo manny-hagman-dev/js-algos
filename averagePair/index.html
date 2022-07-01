@@ -14,7 +14,8 @@
         let right = arr.length - 1;
 
         while (left < right) {
-          let pairAvg = (left + right) / 2;
+          let pairSum = arr[left] + arr[right];
+          let pairAvg = pairSum / 2;
           if (pairAvg === targetAvg) {
             result = true;
             break;
