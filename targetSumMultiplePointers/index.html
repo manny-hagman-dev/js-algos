@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function targetSum(sortedArr, targetSum) {
+        let leftPointer = 0;
+        let rightPointer = sortedArr.length - 1;
+        let pair = null;
+
+        while (leftPointer < rightPointer) {
+          if (sortedArr[leftPointer] + sortedArr[rightPointer] === targetSum) {
+            pair = [sortedArr[leftPointer], sortedArr[rightPointer]];
+            break;
+          } else if (
+            sortedArr[leftPointer] + sortedArr[rightPointer] <
+            targetSum
+          ) {
+            leftPointer++;
+          } else if (
+            sortedArr[leftPointer] + sortedArr[rightPointer] >
+            targetSum
+          ) {
+            rightPointer--;
+          }
+        }
+        return pair;
+      }
+    </script>
+  </body>
+</html>
