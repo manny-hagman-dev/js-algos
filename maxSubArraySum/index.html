@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max Sub Array Sum Naive</title>
+  </head>
+  <body>
+    <script>
+      function maxSubArraySum(arr, num) {
+        if (num > arr.length) {
+          return null;
+        }
+
+        let max = -Infinity;
+
+        for (let i = 0; i < arr.length - num + 1; i++) {
+          let tempMax = 0;
+          for (let j = 0; j < num; j++) {
+            tempMax = tempMax + arr[i + j];
+          }
+
+          if (tempMax > max) {
+            max = tempMax;
+          }
+        }
+        return max;
+      }
+    </script>
+  </body>
+</html>
